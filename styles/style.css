@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    font-size: medium;
+    font-weight: bold;
 }
 
 body {
@@ -7,11 +9,17 @@ body {
 }
 
 .cal-grid {
+    grid-column: 3/1;
     min-height: 100vh;
     display: grid;
     align-content: center;
     justify-content: center;
     margin: 2rem auto;
+    margin-top: 0px;
     grid-template-columns: repeat(5, 80px);
     grid-template-rows: minmax(120px, auto) repeat(4, 100px);
+}
+
+.number {
+    margin: 0.09rem;
 }
