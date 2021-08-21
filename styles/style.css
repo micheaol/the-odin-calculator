@@ -2,14 +2,16 @@
     box-sizing: border-box;
 }
 
-#main-div {
-    border: black solid 1px;
-    display: flex;
-    max-width: 20vw;
-    flex-wrap: wrap;
+body {
+    background: brown;
 }
 
-#div-item {
-    border: black solid 1px;
-    padding: 20px;
+.cal-grid {
+    min-height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    margin: 2rem auto;
+    grid-template-columns: repeat(5, 80px);
+    grid-template-rows: minmax(120px, auto) repeat(4, 100px);
 }
