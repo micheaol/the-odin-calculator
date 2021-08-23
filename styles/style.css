@@ -8,23 +8,106 @@ body {
     background: brown;
 }
 
-
-/* .container {
-    display: grid;
-    grid-column: 1/-1;
-} */
+.container {
+    /* margin: 2rem auto; */
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    border: blanchedalmond solid 2px;
+    max-width: 30vw;
+    max-height: 90vh;
+    justify-content: flex-start;
+    /* padding: 10px; */
+}
 
 .cal-grid {
-    min-height: 100vh;
+    min-height: 91vh;
     display: grid;
     align-content: center;
     justify-content: center;
-    margin: 2rem auto;
-    /* margin-top: 100px; */
     grid-template-columns: repeat(5, 80px);
     grid-template-rows: minmax(120px, auto) repeat(4, 100px);
 }
 
+
+/* style for the individual button */
+
 .number {
     margin: 0.09rem;
 }
+
+
+/* .display {
+    align-self: center;
+    margin: 2rem auto;
+    align-content: center;
+    justify-content: center;
+} */
+
+#number-input {
+    align-self: center;
+    /* margin: 2rem auto; */
+    margin-bottom: 0px;
+    align-content: center;
+    justify-content: center;
+    padding: 20px;
+    min-width: 29.5vw;
+    border-radius: 5px;
+    margin: 5px;
+    /* margin-top: 5px; */
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: right;
+    font-weight: bold;
+    font-size: larger;
+    background: rgb(97, 88, 88);
+    color: blanchedalmond;
+    padding: 15px;
+    min-height: 14vh;
+}
+
+
+/* ============== Media query for the screens ======================= */
+
+
+/* @media screen and (max-width: 800px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        border: blanchedalmond solid 2px;
+        max-width: 50vw;
+        max-height: 100vh;
+        justify-content: flex-start;
+    }
+    .cal-grid {
+        min-height: 10vh;
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        grid-template-columns: repeat(5, 80px);
+        grid-template-rows: minmax(120px, auto) repeat(4, 100px);
+    }
+    .number {
+        margin: 0.09rem;
+    }
+    #number-input {
+        align-self: center;
+        margin-bottom: 0px;
+        align-content: center;
+        justify-content: center;
+        padding: 20px;
+        min-width: 48.5vw;
+        border-radius: 5px;
+        margin: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: right;
+        font-weight: bold;
+        font-size: larger;
+        background: rgb(97, 88, 88);
+        color: blanchedalmond;
+        padding: 15px;
+        min-height: 8vh;
+    }
+} */
