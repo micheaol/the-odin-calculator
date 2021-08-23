@@ -8,6 +8,7 @@ buttons.forEach((button) => {
     button.addEventListener('click', clickButton);
 });
 
+//Click function to check the keypads
 function clickButton(button) {
     console.log(button.target.textContent)
 }
