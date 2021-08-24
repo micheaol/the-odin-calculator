@@ -4,6 +4,7 @@
     box-sizing: border-box;
     background-color: brown;
     outline: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
@@ -46,6 +47,7 @@ button {
     box-shadow: inset -5px -5px 12px rgb(226, 81, 81), 5px 5px 12px rgba(0, 0, 0, .16);
     border: wheat 2px solid;
     font-size: 20px;
+    font-weight: 900;
 }
 
 .equal-btn {
