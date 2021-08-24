@@ -1,113 +1,53 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-size: medium;
-    font-weight: bold;
-}
-
-body {
-    background: brown;
+    background-color: brown;
+    outline: none;
 }
 
 .container {
-    /* margin: 2rem auto; */
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    border: blanchedalmond solid 2px;
-    max-width: 30vw;
-    max-height: 90vh;
-    justify-content: flex-start;
-    /* padding: 10px; */
+    justify-content: center;
+    align-items: center;
 }
 
 .cal-grid {
-    min-height: 91vh;
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    grid-template-columns: repeat(5, 80px);
-    grid-template-rows: minmax(120px, auto) repeat(4, 100px);
-}
-
-
-/* style for the individual button */
-
-.number {
-    margin: 0.09rem;
-}
-
-
-/* .display {
-    align-self: center;
-    margin: 2rem auto;
-    align-content: center;
-    justify-content: center;
-} */
-
-#currentDisplay-screen {
-    align-self: center;
-    /* margin: 2rem auto; */
-    margin-bottom: 0px;
-    align-content: center;
-    justify-content: center;
-    padding: 20px;
-    min-width: 29.5vw;
-    border-radius: 5px;
-    margin: 5px;
-    /* margin-top: 5px; */
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: right;
-    font-weight: bold;
-    font-size: larger;
-    background: rgb(97, 88, 88);
-    color: blanchedalmond;
+    background-color: brown;
     padding: 15px;
-    min-height: 14vh;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px rgb(226, 81, 81), 5px 5px 12px rgba(0, 0, 0, .16);
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
 }
 
+input {
+    grid-column: span 4;
+    height: 70px;
+    width: 260px;
+    border-radius: 10px;
+    border: none;
+    text-align: end;
+    box-shadow: inset -5px -5px 12px rgb(226, 81, 81), 5px 5px 12px rgba(0, 0, 0, .16);
+    color: seashell;
+    font-size: 45px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
 
-/* ============== Media query for the screens ======================= */
+button {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: inset -5px -5px 12px rgb(226, 81, 81), 5px 5px 12px rgba(0, 0, 0, .16);
+    border: wheat 2px solid;
+    font-size: 20px;
+}
 
-
-/* @media screen and (max-width: 800px) {
-    .container {
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-        border: blanchedalmond solid 2px;
-        max-width: 50vw;
-        max-height: 100vh;
-        justify-content: flex-start;
-    }
-    .cal-grid {
-        min-height: 10vh;
-        display: grid;
-        align-content: center;
-        justify-content: center;
-        grid-template-columns: repeat(5, 80px);
-        grid-template-rows: minmax(120px, auto) repeat(4, 100px);
-    }
-    .number {
-        margin: 0.09rem;
-    }
-    #number-input {
-        align-self: center;
-        margin-bottom: 0px;
-        align-content: center;
-        justify-content: center;
-        padding: 20px;
-        min-width: 48.5vw;
-        border-radius: 5px;
-        margin: 5px;
-        margin-left: 10px;
-        margin-right: 10px;
-        text-align: right;
-        font-weight: bold;
-        font-size: larger;
-        background: rgb(97, 88, 88);
-        color: blanchedalmond;
-        padding: 15px;
-        min-height: 8vh;
-    }
-} */
+.equal-btn {
+    width: 120px;
+}
