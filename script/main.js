@@ -1,29 +1,77 @@
-//to get all the buttons on the page:
-const buttons = document.querySelectorAll('.number');
+const numberBtns = document.querySelectorAll('.data-number');
+const allButtons = document.querySelectorAll('button');
 const outputScreen = document.querySelector('.output-screen');
-const dataOperatorBtns = document.querySelectorAll('#clear-button')
+const clearBtn = document.querySelector('#clear-button');
+const resetBtn = document.querySelector('#reset-button');
+const equalBtn = document.querySelector('.equal-btn');
+const dataOperatorBtn = document.querySelectorAll('.data-operator');
+
+//destructure buttons with spread operator:
+let numberBtnSpread = [...numberBtns];
+let allBtnSpread = [...allButtons];
+let dataOperatorBtns = [...dataOperatorBtn];
 
 
 
-//looping through number button:
-buttons.forEach((button) => {
-    button.addEventListener('click', appendDigit);
 
+//loop through each number button and append button click to the screen:
+numberBtnSpread.forEach((button, i) => {
+    button.addEventListener('click', () => {
+
+        if (outputScreen.value === "0") {
+            outputScreen.value = "";
+        }
+        let value = numberBtns[i].innerHTML;
+        outputScreen.value += value
+
+    });
 });
 
+//loop through each operation button and append button click to the screen:
+dataOperatorBtns.forEach((button, i) => {
+    button.addEventListener('click', () => {
+        if (outputScreen.value === "0") {
+            outputScreen.value = "";
+        }
+        let value = dataOperatorBtn[i].innerHTML;
+        outputScreen.value += value
+        // console.log(button.dataset.action)
+        if (button.dataset.action === 'add') {
+            
+        }
+    });
+});
+
+//set clear button
+clearBtn.addEventListener('click', clearScreen);
+
+//set reset scree button:
+resetBtn.addEventListener('click', resetScreen);
 
 
-//function to print number to the screen:
-function appendDigit(button) {
-
-    outputScreen.placeholder += button.target.textContent
+//clear screen function:
+function clearScreen() {
+    outputScreen.value = "";
 }
 
-dataOperatorBtns.forEach((button) => {
-    button.addEventListener('click', clearScreen)
-});
+//reset screen function:
+function resetScreen() {
+    outputScreen.value = "";
+    outputScreen.value += "0"
+}
+//To calculate all input:
+// equalBtn.addEventListener('click', calculate());
 
-//function to clear the output screen:
-function clearScreen() {
-    outputScreen.placeholder = "";
+
+
+//function to evalute string:
+// function calculate() {
+//     for (let counter = 0; counter < dataOperatorBtns.length; counter++) {
+//         console.log(dataOperatorBtns)
+//     }
+// }
+
+//function to add:
+function add(a, b) {
+    return a + b
 }
