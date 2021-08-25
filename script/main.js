@@ -13,9 +13,9 @@ let allBtnSpread = [...allButtons];
 let dataOperatorBtns = [...dataOperatorBtn];
 
 //Variable for function:
-let currentOperator = "";
-let firstOperand = "";
-let secondOperand = "";
+let currentOperator = null;
+let firstOperand = null;
+let secondOperand = null;
 let totalResult = null;
 let toCleared = false;
 
@@ -26,7 +26,7 @@ function add(a, b) {
 
 //funtion for multiplication:
 function multiply(a, b) {
-    return parseFloat(a) * parseFloat(a);
+    return parseFloat(a) * parseFloat(b);
 }
 
 //function of subtraction:
@@ -49,7 +49,7 @@ function percentage(a, b) {
 }
 
 //Operate function to check the function:
-function operate(operator, firstInput, secondInput) {
+function operate(firstInput, secondInput, operator) {
     switch (operator) {
         case '+':
             return add(firstInput, secondInput)
@@ -82,13 +82,13 @@ function getDisplayValue() {
 //function to set operators:
 function setOperators(operator) {
     if (currentOperator === null) {
-        currentOperator = operator
+        currentOperator = operator;
     } else if (firstOperand && secondOperand) {
-        totalResult = operate(currentOperator, Number(firstOperand), Number(secondOperand));
+        totalResult = operate(Number(firstOperand), Number(secondOperand), currentOperator);
         clearScreen();
         displayValue(totalResult);
         firstOperand = totalResult;
-        secondOperand = "";
+        secondOperand = null;
         currentOperator = operator
     }
 }
@@ -100,18 +100,20 @@ function clearScreen() {
 
 //function to clear all value from the screen:
 function clearAllScreen() {
-    firstOperand = "";
-    secondOperand = "";
-    currentOperator = "";
+    firstOperand = null;
+    secondOperand = null;
+    currentOperator = null;
     clearScreen();
 }
 
+// THERE SEEMS TO BE AN ERROR in THIS FUNCTION TO BECHECK IT IT
+// RETURNING UNDEFINED.
 //function to set operand:
 function setOperand(value) {
-    if (firstOperand === null) {
+    if (firstOperand == null) {
         firstOperand = value;
     } else {
-        secondOperand = value
+        secondOperand = value;
     }
 }
 
@@ -119,7 +121,8 @@ function setOperand(value) {
 function generateResult() {
     if (firstOperand && currentOperator && !toCleared && !secondOperand) {
         setOperand(getDisplayValue());
-        return operate(currentOperator, Number(firstOperand), Number(secondOperand))
+        console.log(setOperand())
+        return operate(Number(firstOperand), Number(secondOperand), currentOperator);
     } else {
         return false;
     }
@@ -131,7 +134,8 @@ numberBtnSpread.forEach((numberBtn) => {
         if (toCleared) {
             clearScreen();
         }
-        displayValue(e.target.textContent)
+        displayValue(e.target.textContent);
+        toCleared = false;
     });
 });
 
@@ -149,9 +153,9 @@ equalBtn.addEventListener('click', () => {
     totalResult = generateResult();
     clearScreen();
     if (totalResult) {
-        displayValue(totalResult);
-        console.log(totalResult)
+        displayValue(totalResult)
     }
+    console.log(generateResult())
 });
 
 //add event listener to the clear button:
