@@ -1,11 +1,11 @@
 const numberBtns = document.querySelectorAll('.data-number');
 const allButtons = document.querySelectorAll('button');
-// const totalOutputScreen = document.querySelector('.total-output-screen');
 const clearBtn = document.querySelector('#clear-button');
 const resetBtn = document.querySelector('#reset-button');
 const equalBtn = document.querySelector('.equal-btn');
 const dataOperatorBtn = document.querySelectorAll('.data-operator');
 const outputScreen = document.querySelector('.output-screen');
+
 
 //destructure buttons with spread operator:
 let numberBtnSpread = [...numberBtns];
@@ -43,18 +43,14 @@ function divide(a, b) {
     }
 }
 
-//function for %:
-function percentage(a, b) {
-    return Math.pow(parseFloat(a), parseFloat(b))
-}
-
 //function for decimal:
 function decimal(b) {
     return a + "."
 }
 
+
 //Operate function to check the function:
-function operate(firstInput, secondInput, operator) {
+function operate(firstInput, operator, secondInput) {
     switch (operator) {
         case 'add':
             return add(firstInput, secondInput)
@@ -68,11 +64,6 @@ function operate(firstInput, secondInput, operator) {
         case 'divide':
             return divide(firstInput, secondInput)
             break;
-        case 'percentage':
-            return percentage(firstInput, secondInput)
-            break;
-        case 'decimal':
-            return decimal(firstInput)
     }
 }
 
@@ -91,7 +82,7 @@ function setOperators(operator) {
     if (currentOperator === null) {
         currentOperator = operator;
     } else if (firstOperand && secondOperand) {
-        totalResult = operate(Number(firstOperand), Number(secondOperand), currentOperator);
+        totalResult = operate(Number(firstOperand), currentOperator, Number(secondOperand));
         clearScreen();
         displayValue(totalResult);
         firstOperand = totalResult;
@@ -128,7 +119,7 @@ function setOperand(value) {
 function generateResult() {
     if (firstOperand && currentOperator && !toCleared && !secondOperand) {
         setOperand(getDisplayValue());
-        return operate(Number(firstOperand), Number(secondOperand), currentOperator);
+        return operate(Number(firstOperand), currentOperator, Number(secondOperand));
     } else {
         return false;
     }
@@ -137,6 +128,7 @@ function generateResult() {
 //loop through the number buttons:
 numberBtnSpread.forEach((numberBtn) => {
     numberBtn.addEventListener('click', (e) => {
+        clickSound();
         if (toCleared) {
             clearScreen();
         }
@@ -148,14 +140,17 @@ numberBtnSpread.forEach((numberBtn) => {
 //loop through operator buttons:
 dataOperatorBtns.forEach((operatorBtn) => {
     operatorBtn.addEventListener('click', (e) => {
+        clickSound();
         setOperand(getDisplayValue());
         setOperators(e.target.dataset.action);
+
         toCleared = true;
     });
 });
 
 //add event listerner to equalbtn:
 equalBtn.addEventListener('click', () => {
+    clickSound();
     totalResult = generateResult();
     clearScreen();
     if (totalResult) {
@@ -165,10 +160,18 @@ equalBtn.addEventListener('click', () => {
 
 //add event listener to the clear button:
 clearBtn.addEventListener('click', () => {
+    clickSound();
     clearAllScreen();
 });
 
 //add event listerner to the reset button:
 resetBtn.addEventListener('click', () => {
-    clearScreen();
-})
+    clickSound();
+    clearAllScreen();
+});
+
+function clickSound() {
+    const playSound = document.querySelector('#click');
+    playSound.currentTime = 0;
+    playSound.play();
+}

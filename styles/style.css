@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
 }
 
 .cal-grid {
@@ -41,6 +42,14 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+}
+
+#display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 button {
