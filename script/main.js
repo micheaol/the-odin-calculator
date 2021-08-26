@@ -128,7 +128,7 @@ function generateResult() {
 //loop through the number buttons:
 numberBtnSpread.forEach((numberBtn) => {
     numberBtn.addEventListener('click', (e) => {
-        clickSound();
+        // clickSound();
         if (toCleared) {
             clearScreen();
         }
@@ -140,7 +140,7 @@ numberBtnSpread.forEach((numberBtn) => {
 //loop through operator buttons:
 dataOperatorBtns.forEach((operatorBtn) => {
     operatorBtn.addEventListener('click', (e) => {
-        clickSound();
+        // clickSound();
         setOperand(getDisplayValue());
         setOperators(e.target.dataset.action);
 
@@ -150,7 +150,7 @@ dataOperatorBtns.forEach((operatorBtn) => {
 
 //add event listerner to equalbtn:
 equalBtn.addEventListener('click', () => {
-    clickSound();
+    // clickSound();
     totalResult = generateResult();
     clearScreen();
     if (totalResult) {
@@ -160,18 +160,18 @@ equalBtn.addEventListener('click', () => {
 
 //add event listener to the clear button:
 clearBtn.addEventListener('click', () => {
-    clickSound();
+
     clearAllScreen();
 });
 
 //add event listerner to the reset button:
 resetBtn.addEventListener('click', () => {
-    clickSound();
+
     clearAllScreen();
 });
 
-function clickSound() {
-    const playSound = document.querySelector('#click');
-    playSound.currentTime = 0;
-    playSound.play();
-}
+// function clickSound() {
+//     const playSound = document.querySelector('#click');
+//     playSound.currentTime = 0;
+//     playSound.play();
+// }
