@@ -21,49 +21,49 @@ let toCleared = false;
 
 //function to add:
 function add(a, b) {
-    return parseFloat(a) + parseFloat(b);
+    return a + b;
 }
 
 //funtion for multiplication:
 function multiply(a, b) {
-    return parseFloat(a) * parseFloat(b);
+    return a * b;
 }
 
 //function of subtraction:
 function subtract(a, b) {
-    return parseFloat(a) - parseFloat(b);
+    return a - b;
 }
 
 //divition function:
 function divide(a, b) {
-    if (parseFloat(b) === 0) {
+    if (b === 0) {
         return "Can't divide by Zero"
     } else {
-        return parseFloat(a) / parseFloat(b)
+        return a / b
     }
 }
 
 //function for %:
 function percentage(a, b) {
-    return Math.pow(parseFloat(a), parseFloat(b))
+    return Math.pow(a, b)
 }
 
 //Operate function to check the function:
 function operate(firstInput, secondInput, operator) {
     switch (operator) {
-        case '+':
+        case 'add':
             return add(firstInput, secondInput)
             break;
-        case '-':
+        case 'subtract':
             return subtract(firstInput, secondInput)
             break;
-        case '*':
+        case 'multiply':
             return multiply(firstInput, secondInput)
             break;
-        case '/':
+        case 'divide':
             return divide(firstInput, secondInput)
             break;
-        case '%':
+        case 'percentage':
             return percentage(firstInput, secondInput)
             break;
     }
@@ -71,12 +71,12 @@ function operate(firstInput, secondInput, operator) {
 
 //to display value on the screen:
 function displayValue(value) {
-    outputScreen.value = outputScreen.value + value;
+    outputScreen.textContent = outputScreen.textContent + value;
 }
 
 //How to get display value:
 function getDisplayValue() {
-    return outputScreen.value;
+    return outputScreen.textContent;
 }
 
 //function to set operators:
@@ -95,7 +95,7 @@ function setOperators(operator) {
 
 //function to clear the screen:
 function clearScreen() {
-    outputScreen.value = "";
+    outputScreen.textContent = "";
 }
 
 //function to clear all value from the screen:
@@ -121,7 +121,6 @@ function setOperand(value) {
 function generateResult() {
     if (firstOperand && currentOperator && !toCleared && !secondOperand) {
         setOperand(getDisplayValue());
-        console.log(setOperand())
         return operate(Number(firstOperand), Number(secondOperand), currentOperator);
     } else {
         return false;
@@ -155,7 +154,6 @@ equalBtn.addEventListener('click', () => {
     if (totalResult) {
         displayValue(totalResult)
     }
-    console.log(generateResult())
 });
 
 //add event listener to the clear button:

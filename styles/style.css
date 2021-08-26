@@ -23,7 +23,7 @@
     grid-template-columns: repeat(4, 70px);
 }
 
-input {
+.output-screen {
     grid-column: span 4;
     height: 70px;
     width: 280px;
