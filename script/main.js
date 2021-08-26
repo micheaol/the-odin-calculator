@@ -45,7 +45,12 @@ function divide(a, b) {
 
 //function for %:
 function percentage(a, b) {
-    return Math.pow(a, b)
+    return Math.pow(parseFloat(a), parseFloat(b))
+}
+
+//function for decimal:
+function decimal(b) {
+    return a + "."
 }
 
 //Operate function to check the function:
@@ -66,6 +71,8 @@ function operate(firstInput, secondInput, operator) {
         case 'percentage':
             return percentage(firstInput, secondInput)
             break;
+        case 'decimal':
+            return decimal(firstInput)
     }
 }
 
@@ -163,5 +170,5 @@ clearBtn.addEventListener('click', () => {
 
 //add event listerner to the reset button:
 resetBtn.addEventListener('click', () => {
-    clearAllScreen();
+    clearScreen();
 })
